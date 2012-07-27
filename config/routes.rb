@@ -1,5 +1,6 @@
 Handy::Application.routes.draw do
   resources :users
+  resources :posts, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
