@@ -34,4 +34,9 @@ Handy::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Paper clip
+  Paperclip.options[:command_path] = "C:\Program Files\ImageMagick"
+  #Paperclip.options[:swallow_stderr] = false
+
 end

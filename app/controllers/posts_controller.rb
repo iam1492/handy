@@ -1,11 +1,7 @@
 class PostsController < ApplicationController
   def create
-  	@post = Post.new(params[:post])
-  	if @post.save
-        format.json {render json: @post}
-      else
-        format.json {render json: @post.errors}
-      end
+  	@post = Post.new(params[:data])
+  	@post.save
   end
 
   def show
