@@ -23,5 +23,14 @@ class SignupsController < Devise::RegistrationsController
   def destroy
   	super
   end
+
+  def show
+  	@user = User.find_by_email(params[:email])
+  	respond_to do |format|
+  		format.json {
+  			render :status=>200, :json=>{:message=> "ok nice"}
+  		}
+  	end
+  end
   
 end

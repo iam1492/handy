@@ -1,12 +1,13 @@
 Handy::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" } do
-    post '/sign_up', :to => 'signups#create'    
+    post '/sign_up', :to => 'signups#create' 
+    get '/user_show',:to => 'signups#show'  
   end
 
   resources :posts, only: [:create, :show, :destroy]
-  resources :images
-  #resources :sessions, :only => [:create, :destroy]
-  resources :tokens,:only => [:create, :destroy]
+  resources :images    
+  resources :tokens,:only => [:create, :destroy], :path => "/users/signin"
+
   # match '/logout', to: 'sessions#destroy', via: :delete
   # The priority is based upon order of creation:
   # first created -> highest priority.
