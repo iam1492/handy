@@ -1,13 +1,9 @@
 Handy::Application.routes.draw do
-  resources :users
+  devise_for :users
+
   resources :posts, only: [:create, :show, :destroy]
   resources :images
-  resources :sessions, only: [:new, :create, :destroy]
-
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'session#create'
-  match '/signout', to: 'session#destroy', via: :delete
-
+  resources :sessions, :only => [:create, :destroy]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
